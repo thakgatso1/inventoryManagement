@@ -9,8 +9,10 @@ public interface AssetService {
   
   List<Asset> getAllAssets();
 
-   Asset saveAsset(Asset asset);
- Asset editAsset (Asset asset);
+  Asset getAssetById(int id);
+  
+   Asset saveOrUpdateAsset(Asset asset);
+
 public void  deleteAsset (Asset asset);
 
 }

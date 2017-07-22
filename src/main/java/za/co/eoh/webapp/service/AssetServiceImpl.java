@@ -4,6 +4,7 @@ import za.co.eoh.webapp.dao.AssetDao;
 import za.co.eoh.webapp.entity.Makes;
 
 import java.util.List;
+import javax.inject.Qualifier;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,16 +24,21 @@ public class AssetServiceImpl implements AssetService {
     return assetDao.findAll();
 
   }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Asset getAssetById(int id) {
+      return assetDao.findById(id);
+    }
+  
+  
+  
  @Transactional
-    public Asset saveAsset(Asset asset) {
-        return assetDao.save(asset);
+    public Asset saveOrUpdateAsset(Asset asset) {
+        return assetDao.saveOrUpdate(asset);
           }
 
-    @Transactional
-    public Asset editAsset(Asset asset) {
-        
-return assetDao.edit(asset);
-}
+ 
     @Transactional
     public void deleteAsset(Asset asset){
         assetDao.delete(asset);

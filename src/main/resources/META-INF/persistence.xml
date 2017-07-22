@@ -5,7 +5,7 @@
     <class>za.co.eoh.webapp.entity.User</class>
     <class>za.co.eoh.webapp.entity.Role</class>
     <class>za.co.eoh.webapp.entity.Asset</class>
-    <class>za.co.eoh.webapp.entity.Assignment</class>
+    <class>za.co.eoh.webapp.entity.UserAsset</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3307/userdb?zeroDateTimeBehavior=convertToNull"/>

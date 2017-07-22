@@ -32,17 +32,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "Asset")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Asset.findAll", query = "SELECT a FROM Asset a"),
-    @NamedQuery(name = "Asset.findByAssetID", query = "SELECT a FROM Asset a WHERE a.assetID = :assetID"),
-    @NamedQuery(name = "Asset.findBySerialNo", query = "SELECT a FROM Asset a WHERE a.serialNo = :serialNo"),
-    @NamedQuery(name = "Asset.findByType", query = "SELECT a FROM Asset a WHERE a.type = :type"),
-    @NamedQuery(name = "Asset.findByModel", query = "SELECT a FROM Asset a WHERE a.model = :model"),
-    @NamedQuery(name = "Asset.findByMake", query = "SELECT a FROM Asset a WHERE a.make = :make"),
-    @NamedQuery(name = "Asset.findByPurchaseDate", query = "SELECT a FROM Asset a WHERE a.purchaseDate = :purchaseDate"),
-    @NamedQuery(name = "Asset.findByLifeSpan", query = "SELECT a FROM Asset a WHERE a.lifeSpan = :lifeSpan"),
-    @NamedQuery(name = "Asset.findByComment", query = "SELECT a FROM Asset a WHERE a.comment = :comment")})
 public class Asset implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -85,7 +74,7 @@ public class Asset implements Serializable {
     @Column(name = "comment")
     private String comment;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "assetID")
-    private List<Assignment> assignmentList;
+    private List<UserAsset> assignmentList;
 
     public Asset() {
     }
@@ -170,11 +159,11 @@ public class Asset implements Serializable {
     }
 
     @XmlTransient
-    public List<Assignment> getAssignmentList() {
+    public List<UserAsset> getAssignmentList() {
         return assignmentList;
     }
 
-    public void setAssignmentList(List<Assignment> assignmentList) {
+    public void setAssignmentList(List<UserAsset> assignmentList) {
         this.assignmentList = assignmentList;
     }
 

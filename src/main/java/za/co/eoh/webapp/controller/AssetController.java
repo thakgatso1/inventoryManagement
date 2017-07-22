@@ -1,5 +1,6 @@
 package za.co.eoh.webapp.controller;
 
+import za.co.eoh.webapp.forms.AddAssetsForm;
 import com.sun.org.apache.bcel.internal.generic.RETURN;
 import java.util.Date;
 import za.co.eoh.webapp.entity.Makes;
@@ -13,7 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import za.co.eoh.webapp.entity.Asset;
@@ -41,54 +44,40 @@ public class AssetController {
     @RequestMapping(value = "/viewAddAsset.htm")
     public String callViewAddAsset(Model model) {
         List<Asset> assets = assetService.getAllAssets();
-     
+
         model.addAttribute("assetList", assets);
         model.addAttribute("addAssetForm", new AddAssetsForm());
 
-        return "addAsset";
+        return "asset/addAsset";
     }
 
     @RequestMapping(value = "/delete.htm")
-    public String delete(@RequestParam("id") String id, Model model,  @ModelAttribute("addAssetForm") AddAssetsForm form) {
+    public String delete(@RequestParam(value="id",required = false) Integer id, Model model,@ModelAttribute("addAssetForm") AddAssetsForm form) throws Exception{
         try {
-            Asset asset=new Asset();
-            asset.setAssetID(Integer.parseInt(id));
-       assetService.deleteAsset(asset);
-       model.addAttribute("dltMsg", "Successfully deleted from the database");
+         
+            Asset asset = new Asset();
+          asset.setAssetID(id);
+            assetService.deleteAsset(asset);
+            model.addAttribute("dltMsg", "Successfully deleted from the database");
+            return callViewAddAsset(model);
         } catch (Exception exc) {
-
+    exc.printStackTrace();
+    throw new Exception(exc);
         }
-        return "addAsset";
-    }
-    @RequestMapping(value="/updateAsset.htm")
-    public String editAsset(Model model, @ModelAttribute("addAssetForm") AddAssetsForm form){
-        try{
-        Asset asset = new Asset();
-        asset=assetService.editAsset(asset);
-        asset.setPurchaseDate(new Date());
-
-            asset.setSerialNo(form.getSerialNo());
-            asset.setType(form.getType());
-//
-//    model.addAttribute("assetList", assets);
-            asset.setMake(form.getMake());
-            asset.setModel(form.getModel());
-            asset.setComment(form.getComment());
-            asset.setLifeSpan(Integer.parseInt(form.getLifeSpan()));
-            asset = assetService.saveAsset(asset);
-             List<Asset> assets = assetService.getAllAssets();
-            model.addAttribute("assetList", assets);
-            model.addAttribute("msg", "Successfully added to the database");
-        } catch (Exception exc) {
-
-}return  "addAsset";
+      //  return "addAsset";
     }
 
 
-    @RequestMapping(value = "/addAsset.htm")
-    public String addAsset(Model model, @ModelAttribute("addAssetForm") AddAssetsForm form) {
+    @RequestMapping(value = "/addUpdateAsset.htm")
+    public String addOrUpdateAsset(Model model, @ModelAttribute("addAssetForm") AddAssetsForm form) {
         try {
             Asset asset = new Asset();
+            System.out.println(form);
+            if(form.getAssetID()!=0)
+            {
+                asset.setAssetID(form.getAssetID());
+            }
+            //viewAddAsset.htm
             asset.setPurchaseDate(new Date());
 
             asset.setSerialNo(form.getSerialNo());
@@ -99,7 +88,7 @@ public class AssetController {
             asset.setModel(form.getModel());
             asset.setComment(form.getComment());
             asset.setLifeSpan(Integer.parseInt(form.getLifeSpan()));
-            asset = assetService.saveAsset(asset);
+            asset = assetService.saveOrUpdateAsset(asset);
             List<Asset> assets = assetService.getAllAssets();
             model.addAttribute("assetList", assets);
             model.addAttribute("msg", "Successfully added to the database");
@@ -107,7 +96,7 @@ public class AssetController {
 
         }
 
-        return "addAsset";
+        return "asset/addAsset";
     }
 
 }

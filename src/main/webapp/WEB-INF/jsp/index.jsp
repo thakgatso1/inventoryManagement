@@ -12,5 +12,8 @@
          Assets 
     <br>
     <a href="/webapp/viewAddAsset.htm">Add Asset</a>
+    <h1>
+      <a href="/addUpdateUser.htm">Users</a>
+      </h1>
   </body>
 </html>

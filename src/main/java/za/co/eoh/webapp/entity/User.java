@@ -31,57 +31,50 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "User")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
-    @NamedQuery(name = "User.findByUserID", query = "SELECT u FROM User u WHERE u.userID = :userID"),
-    @NamedQuery(name = "User.findByUsername", query = "SELECT u FROM User u WHERE u.username = :username"),
-    @NamedQuery(name = "User.findByType", query = "SELECT u FROM User u WHERE u.type = :type"),
-    @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password"),
-    @NamedQuery(name = "User.findByBusinessUnt", query = "SELECT u FROM User u WHERE u.businessUnt = :businessUnt"),
-    @NamedQuery(name = "User.findByComment", query = "SELECT u FROM User u WHERE u.comment = :comment"),
-    @NamedQuery(name = "User.findByRoleID", query = "SELECT u FROM User u WHERE u.roleID = :roleID")})
+
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "userID")
     private Integer userID;
+   
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 15)
     @Column(name = "username")
     private String username;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 10)
-    @Column(name = "type")
-    private String type;
+    
+//    
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
     @Column(name = "password")
     private String password;
+   
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
     @Column(name = "businessUnt")
     private String businessUnt;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "comment")
     private String comment;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "roleID")
-    private int roleID;
+    
+    
+    
     @ManyToOne(cascade = CascadeType.ALL)
-    //@JoinColumn("roleID");
+    @JoinColumn(name="userRole_roleID",referencedColumnName = "roleID")
     private Role userRole;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userID")
-    private List<Assignment> assignmentList;
+    private List<UserAsset> assignmentList;
 
     public User() {
     }
@@ -90,14 +83,14 @@ public class User implements Serializable {
         this.userID = userID;
     }
 
-    public User(Integer userID, String username, String type, String password, String businessUnt, String comment, int roleID) {
+    public User(Integer userID, String username, String password, String businessUnt, String comment, int roleID) {
         this.userID = userID;
         this.username = username;
-        this.type = type;
+      
         this.password = password;
         this.businessUnt = businessUnt;
         this.comment = comment;
-        this.roleID = roleID;
+  
     }
 
     public Integer getUserID() {
@@ -116,13 +109,7 @@ public class User implements Serializable {
         this.username = username;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
+ 
 
     public String getPassword() {
         return password;
@@ -148,20 +135,13 @@ public class User implements Serializable {
         this.comment = comment;
     }
 
-    public int getRoleID() {
-        return roleID;
-    }
-
-    public void setRoleID(int roleID) {
-        this.roleID = roleID;
-    }
-
+  
     @XmlTransient
-    public List<Assignment> getAssignmentList() {
+    public List<UserAsset> getAssignmentList() {
         return assignmentList;
     }
 
-    public void setAssignmentList(List<Assignment> assignmentList) {
+    public void setAssignmentList(List<UserAsset> assignmentList) {
         this.assignmentList = assignmentList;
     }
 
