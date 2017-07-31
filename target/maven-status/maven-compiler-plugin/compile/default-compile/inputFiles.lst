@@ -1,18 +1,23 @@
-/home/thakgatso/Downloads/webapp/src/main/java/za/co/eoh/webapp/forms/AddAssetsForm.java
-/home/thakgatso/Downloads/webapp/src/main/java/za/co/eoh/webapp/service/AssetServiceImpl.java
-/home/thakgatso/Downloads/webapp/src/main/java/za/co/eoh/webapp/controller/LandingController.java
-/home/thakgatso/Downloads/webapp/src/main/java/za/co/eoh/webapp/entity/Role.java
-/home/thakgatso/Downloads/webapp/src/main/java/za/co/eoh/webapp/forms/AddUserForm.java
-/home/thakgatso/Downloads/webapp/src/main/java/za/co/eoh/webapp/entity/User.java
-/home/thakgatso/Downloads/webapp/src/main/java/za/co/eoh/webapp/controller/AssetController.java
-/home/thakgatso/Downloads/webapp/src/main/java/za/co/eoh/webapp/dao/UserDaoImpl.java
-/home/thakgatso/Downloads/webapp/src/main/java/za/co/eoh/webapp/dao/AssetDaoImpl.java
-/home/thakgatso/Downloads/webapp/src/main/java/za/co/eoh/webapp/service/UserviceImpl.java
-/home/thakgatso/Downloads/webapp/src/main/java/za/co/eoh/webapp/service/UserService.java
-/home/thakgatso/Downloads/webapp/src/main/java/za/co/eoh/webapp/dao/AssetDao.java
-/home/thakgatso/Downloads/webapp/src/main/java/za/co/eoh/webapp/entity/Asset.java
-/home/thakgatso/Downloads/webapp/src/main/java/za/co/eoh/webapp/dao/UserDao.java
-/home/thakgatso/Downloads/webapp/src/main/java/za/co/eoh/webapp/entity/UserAsset.java
-/home/thakgatso/Downloads/webapp/src/main/java/za/co/eoh/webapp/service/AssetService.java
-/home/thakgatso/Downloads/webapp/src/main/java/za/co/eoh/webapp/controller/UserController.java
-/home/thakgatso/Downloads/webapp/src/main/java/za/co/eoh/webapp/entity/Makes.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/service/MakeServiceImpl.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/service/MakeService.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/dao/UserDao.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/service/AssetService.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/dao/AssetDaoImpl.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/entity/Asset.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/forms/UserForm.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/entity/Make.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/dao/AssetDao.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/entity/UserAsset.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/controller/AssetController.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/entity/Role.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/forms/LoginForm.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/service/UserviceImpl.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/dao/MakeDaoImpl.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/service/UserService.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/controller/IndexController.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/entity/User.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/dao/UserDaoImpl.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/forms/AssetForm.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/controller/UserController.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/dao/MakeDao.java
+/home/thakgatso/Downloads/webapp (3)/src/main/java/za/co/eoh/invetory/management/service/AssetServiceImpl.java
