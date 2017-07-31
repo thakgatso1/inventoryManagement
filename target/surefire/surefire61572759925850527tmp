@@ -1,0 +1,7 @@
+#surefire
+#Sun Jul 30 20:51:32 SAST 2017
+maven.ext.class.path=/home/thakgatso/netbeans-8.0.2/java/maven-nblib/netbeans-eventspy.jar
+user.dir=/home/thakgatso/Downloads/webapp (3)
+localRepository=/home/thakgatso/.m2/repository
+netbeans.deploy=true
+basedir=/home/thakgatso/Downloads/webapp (3)
